@@ -1,0 +1,36 @@
+<html>
+<body>
+    <h1>Curso de JavaScript Básico - Aula 3</h1>
+    <script>
+        let lista = [];
+        let novoItem = prompt("Digite um item para adicionar à lista ou 'sair' para encerrar:");
+
+        while(novoItem != 'sair'){ 
+            lista.push(novoItem);
+            novoItem = prompt("Digite um item para adicionar à lista ou 'sair' para encerrar:");
+        }
+        if(lista.length == 0){
+            alert("Você não adicionou nenhum item a sua lista!");
+        } else {
+            alert("Você deve comprar esses itens: ");
+            for(let i = 0; i < lista.length; i++){
+                alert(lista[i]);
+            } 
+        }
+
+        let retirar = prompt("Você deseja retirar algum item da lista? (sim/não)");
+        while (retirar === 'sim'){
+            let itemRetirar = prompt("Digite o item que deseja remover!");
+            let arrayRetirar = lista.indexOf(itemRetirar);
+            lista.splice(arrayRetirar, 1);
+            retirar = prompt("Você deseja continuar retirando algum item da lista? (sim/não)");
+        }
+
+        alert("Agora, a sua lista contem os seguintes itens: ");
+        for (let i = 0; i < lista.length; i++){
+            alert(lista[i]);
+        }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<body>
+    <h1>Curso de JavaScript Básico - Aula 4</h1>
+    <script>
+        function buscarCep(){
+            let cep = prompt("Digite o CEP desejado: ");
+            let url = "https://brasilapi.com.br/api/cep/v2/" + cep;
+
+            fetch(url)
+             .then(function(resposta) {
+                    resposta.json().then(function(dados){
+                        console.log(dados);
+                        alert("Cidade: " + dados.city + "\nBairro: " + dados.neighborhood + "\nRua: " + dados.street);
+                    });
+                })
+                .catch(function(erro){
+                    console.log("Ocorreu um erro ao buscar os dados", erro);
+                });
+        }
+
+        buscarCep();
+    </script>
+</body>
+</html>
